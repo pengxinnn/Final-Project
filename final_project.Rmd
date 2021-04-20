@@ -85,7 +85,6 @@ ggplot(black_saber_current_employees_needed, aes(x=gender, y=salary, fill=gender
   theme_minimal() + 
   coord_flip() + 
   scale_fill_manual(values=c("#6897bb", "#f0dbb7")) + 
-  ggtitle("Boxplot of Salary by Gender") + 
   ggsave("images/boxplot_s_gender.png", width = 7, height = 4)
 ```
 ```{r}
@@ -97,7 +96,6 @@ ggplot(black_saber_current_employees_needed, aes(x=gender, y=salary, fill=gender
   theme_minimal() + 
   coord_flip() + 
   scale_fill_manual(values=c("#6897bb", "#f0dbb7")) + 
-  ggtitle("Boxplot of Salary by Team and Gender") + 
   ggsave("images/boxplot_s_team_gender.png", width = 7, height = 4)
 ```
 
@@ -118,10 +116,15 @@ We explored whether gender pay inequality exists in Black Saber Software by inve
 Salary data was first transformed into numeric form and special symbols like '$' and ',' were deleted from it. And then role_seniority, gender, team, financial_q, leadership_for_level were transformed into factors.
 
 To have an overview of the salary distribution between men and women, we plotted the boxplot of salary by gender below. Since first quartile, median, third quartile, maximum of men's salary are all greater than women's salary, in general, men's salary in Black Saber Software is higher than women's salary.
+
 ![](images/boxplot_s_gender.png)
+Figure 1: Boxplot of Salary by Gender.
+
 
 However, since salary differs from team to team, we further provided the boxplot of salary by team and gender. Among the 8 teams, women's salary is lower than men's salary in 4 teams in general, including Client services, Data, Design, Marketing and sales. In team People and talent, women's salary is greater than men's. And in Legal and finance, and Operations, women and men have similar salary distribution. Finally, in Software team, first quartile and median of salary are similar between men and women, but women's third quartile is higher, and men's maximum salary is higher.
+
 ![](images/boxplot_s_team_gender.png)
+Figure 2: Boxplot of Salary by Team and Gender.
 
 Since salary may also be influenced by many other factors like role seniority, to further compare salary between men and women, we used a linear mixed model. The model for $Y_i$ ($i^{th}$ employee's salary) is as follows:
 
@@ -205,5 +208,3 @@ _This section should be fairly short, no more than half a page. Assume a general
 
 * _Make at least three relevant statements about your company’s approach to ethical statistical consulting. These should be appropriately in line with professional conduct advice like the (Statistical Society of Canada Code of Conduct)[https://ssc.ca/sites/default/files/data/Members/public/Accreditation/ethics_e.pdf] or the (Ethical Guidelines for Statistical Practice from the American Statistical Society)[https://www.amstat.org/ASA/Your-Career/Ethical-Guidelines-for-Statistical-Practice.aspx]. For example, "the customer is always right" ISN’T the type of thing an ethical statistical consultant would include._
 *	_Be very careful not to just copy and paste from these other documents! Put things in your own words._
-
-__Final advice: KNIT EARLY AND OFTEN!__
